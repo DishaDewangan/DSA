@@ -1,18 +1,34 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
-int main(){
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    int max= arr[0];
-    for(int i=0;i<n;i++){
-        if(arr[i]>max){
-            max=arr[i];
+
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        int maxVal = arr[0];
+        for (int i = 1; i < arr.size(); i++) {
+            if (arr[i] > maxVal) {
+                maxVal = arr[i];
+            }
         }
+        return maxVal;
     }
-    cout<<"Largest element in array : "<<max<<endl;
+};
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    Solution obj;
+    int result = obj.largest(arr);
+    cout << "Largest element in array: " << result << endl;
+
     return 0;
 }
